@@ -1,0 +1,4 @@
+## Dr.eye
+In certain rural African villages, accessing an ophthalmologist is a luxury. Individuals suffering from eye diseases often lack proper treatment due to the scarcity of specialists, leading to a worsening of their conditions and frequently resulting in blindness, particularly for those with diabetic retinopathy. Therefore, an AI system capable of automatically detecting stages of retinopathy from fundus images could provide significant assistance.
+
+Retinopathy is obtained from Kaggle: [APTOS 2019 Blindness Detection](https://www.kaggle.com/competitions/aptos2019-blindness-detection/data)

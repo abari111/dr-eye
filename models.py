@@ -1,12 +1,16 @@
-""" All models used and test"""
+
 import torch
-from torch.nn import functional as F
 import torch.nn as nn
-from torchvision.models import mobilenet_v3_small, MobileNet_V3_Small_Weights, vgg16, VGG16_Weights
+from torchvision.models import ( 
+            mobilenet_v3_small, 
+            MobileNet_V3_Small_Weights, 
+            vgg16, VGG16_Weights)
+
 
 class RetNet(nn.Module):
     """Custom network for retinopathy detection"""
     def __init__(self, in_c:int, out_c:int, nb_cl:int=5):
+        
         super().__init__()
         self.features = nn.Sequential(nn.Conv2d(in_c, out_c, 3), 
         nn.ReLU(),
@@ -18,6 +22,7 @@ class RetNet(nn.Module):
         self.classifier = nn.Sequential(nn.Linear(246016, 1000), nn.Linear(1000, nb_cl))
 
     def forward(self, x):
+        
         x = self.features(x)
         x = x.view(-1, 246016)
         x = self.classifier(x)

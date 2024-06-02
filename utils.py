@@ -112,8 +112,7 @@ def display_gui(dataset):
     root.mainloop()
     
 if __name__=="__main__":
-    import os    
-    os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+
     dataset_path = 'datasets/ret_dataset/'
     annot_path = 'annot_balanced_200.csv'
     n_classes = 5
