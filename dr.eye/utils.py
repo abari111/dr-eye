@@ -137,9 +137,10 @@ def display_gui(dataset):
 
 
 if __name__ == "__main__":
+    os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
     dataset_path = "datasets/ret_dataset/"
-    annot_path = "annot_balanced_200.csv"
+    annot_path = "datasets/annot_balanced_200.csv"
     n_classes = 5
 
     transform = Compose([ToTensor(), Resize((256, 256))])

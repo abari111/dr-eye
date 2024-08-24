@@ -18,7 +18,7 @@ def test(model, dataloader_test):
 if __name__ == "__main__":
 
     dataset_path = "datasets/ret_dataset/"
-    annot_path = "annot_balanced_200.csv"
+    annot_path = "datasets/annot_balanced_200.csv"
     dataset = RetDataset(dataset_path, annot_path)
 
     gen = GenRetSample(dataset)
@@ -27,4 +27,4 @@ if __name__ == "__main__":
     model = get_mobilenet_v3()
     checkpoint = torch.load("models/checkpoint_0.pth")
     model.load_state_dict(checkpoint["model_st_dict"])
-    print(torch.argmax(model(img.unsqueeze(dim=0))), lab)
+    print(torch.argmax(model(img.unsqueeze(dim=0))).item(), lab.item())
