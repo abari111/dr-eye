@@ -49,13 +49,13 @@ def train(
             optimizer.step()
 
         if args.tb:
-            writer.add_scalar('acc', acc)
-            writer.add_scalar('loss', losses)
+            writer.add_scalar('acc', acc/len(dataloader))
+            writer.add_scalar('loss', losses/len(dataloader))
             
         if epoch % 100 == 0 and save:
             checkpt["model_st_dict"] = model.state_dict()
-            checkpt["acc"] = acc
-            checkpt["loss"] = losses
+            checkpt["acc"] = acc/len(dataloader)
+            checkpt["loss"] = losses/len(dataloader)
             if checkpt_path is None:
                 checkpt_path = ""
             checkpt_file_name = f"checkpoint_{epoch}.pth"
