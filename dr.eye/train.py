@@ -11,7 +11,6 @@ from torch.utils.tensorboard import SummaryWriter
 from utils import RetDataset
 from models import get_mobilenet_v3
 
-
 # Command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('--device', type=str, default='cpu')
@@ -63,7 +62,6 @@ def train(
             torch.save(checkpt, checkpt_file_path)
 
         print(f"{epoch} epochs: {loss.item()} acc = {acc/len(dataloader.dataset)}")
-
 
 if __name__ == "__main__":
     dataset_path = "datasets/ret_dataset/"
